@@ -1,16 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 // Console.WriteLine("Hello, World!");
 
-Console.WriteLine("Сколько чисел желаете ввести?");
-int n = Convert.ToInt32(Console.ReadLine());
-
-int[] array = new int[n];
 
 int[] fillArray(int[] arr)
 {
     for (int i = 0; i < arr.Length; i++)
     {
-        Console.Write($"{i+1} Введите число: ");
+        Console.Write($"{i + 1} Введите число: ");
         arr[i] = Convert.ToInt32(Console.ReadLine());
     }
     return arr;
@@ -29,11 +25,25 @@ int countPositives(int[] arr)
     return count;
 }
 
-fillArray(array);
-Console.WriteLine(" ");
-for (int i = 0; i < array.Length; i++)
+void PrintArray(int[] arr)
 {
-    Console.Write(array[i]+",");
+    Console.Write("[ ");
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write(arr[i]+"  ");
+    }
+
+    Console.Write("] ");
 }
 
-Console.Write($"  ->> {countPositives(array)}");
+
+Console.WriteLine("Сколько чисел желаете ввести?");
+int n = Convert.ToInt32(Console.ReadLine());
+
+int[] array = new int[n];
+
+fillArray(array);
+Console.WriteLine(" ");
+PrintArray(array);
+Console.Write($" ->> {countPositives(array)}");
